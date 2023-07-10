@@ -6,23 +6,23 @@
 */
 int check_cycle(listint_t *list)
 {
-	listint_t *listed;
-	listed_t *check;
+	listint_t *slowly;
+	listint_t *faster;
 
-	if (list == NULL || list->next == NULL)
+	slowly = list;
+	faster = list;
+	if (list == NULL)
 	{
 		return (0);
 	}
-	listed = list;
-	check = listed->next;
-	while (listed != NULL && check->next != NULL && check->next->next != NULL)
+	while (slowly != NULL && faster != NULL && faster->next != NULL)
 	{
-		if (listed == check)
+		slowly = slowly->next;
+		faster = faster->next->next;
+		if (slowly == faster)
 		{
 			return (1);
 		}
-		listed = listed->next;
-		check = check->next->next;
 	}
 	return (0);
 }
