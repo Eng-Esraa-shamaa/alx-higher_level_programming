@@ -6,20 +6,20 @@
 */
 int check_cycle(listint_t *list)
 {
-	listint_t *slowly;
-	listint_t *faster;
+	listint_t *a;
+	listint_t *b;
 
-	slowly = list;
-	faster = list;
+	a = list;
+	b = list;
 	if (list == NULL)
 	{
 		return (0);
 	}
-	while (slowly != NULL && faster != NULL && faster->next != NULL)
+	while (a != NULL && b != NULL && b->next != NULL)
 	{
-		slowly = slowly->next;
-		faster = faster->next->next;
-		if (slowly == faster)
+		a = a->next;
+		b = b->next->next;
+		if (a == b)
 		{
 			return (1);
 		}
