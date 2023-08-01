@@ -20,6 +20,8 @@ class Square:
 
     @size.setter
     def size(self, value):
+        """set the size of square
+        """
         if type(value) is not int:
             raise TypeError('size must be an integer')
         if value < 0:
@@ -34,6 +36,8 @@ class Square:
 
     @position.setter
     def position(self, value):
+        """set the position of square
+        """
         if type(value) is not tuple:
             raise TypeError('position must be a tuple of 2 positive integers')
         if len(value) != 2:
@@ -55,6 +59,7 @@ class Square:
         """
         if self.__size == 0:
             print()
+            return
         else:
             for v_position in range(0, self.__position[1]):
                 print()
