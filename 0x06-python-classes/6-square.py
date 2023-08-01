@@ -18,9 +18,7 @@ class Square:
 
     @property
     def size(self):
-        """Get/set the current size of the square."""
-        """size of square
-        """
+        """Get/set size of  square."""
         return (self.__size)
 
     @size.setter
@@ -35,9 +33,7 @@ class Square:
 
     @property
     def position(self):
-        """Get/set the current size of the square."""
-        """position of square
-        """
+        """Get/set size of square."""
         return(self.__position)
 
     @position.setter
