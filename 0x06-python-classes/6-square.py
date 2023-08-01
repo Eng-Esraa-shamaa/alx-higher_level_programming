@@ -7,11 +7,15 @@ class Square:
     """defining class square
     """
     def __init__(self, size=0, position=(0, 0)):
+        """defining size and position of square
+        """
         self.size = size
         self.position = position
 
     @property
     def size(self):
+        """size of square
+        """
         return (self.__size)
 
     @size.setter
@@ -24,6 +28,8 @@ class Square:
 
     @property
     def position(self):
+        """position of square
+        """
         return(self.__position)
 
     @position.setter
@@ -39,10 +45,14 @@ class Square:
         self.__position = value
 
     def area(self):
+        """area of square
+        """
         area = self.__size * self.__size
         return (area)
 
     def my_print(self):
+        """print square
+        """
         if self.__size == 0:
             print()
         else:
