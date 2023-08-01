@@ -6,8 +6,10 @@
 class Square:
     """defines square
     """
-    def __init__(self, size = 0):
-        if type(size) is not int:
+    def __init__(self, size=0):
+        """Instantiation with optional size
+        """
+        if not isinstance(size, int):
             raise TypeError('size must be an intege')
         if (size < 0):
             raise ValueError('size must be >= 0')
