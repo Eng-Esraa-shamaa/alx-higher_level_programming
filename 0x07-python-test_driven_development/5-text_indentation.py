@@ -9,7 +9,7 @@ def text_indentation(text):
     Raises:
         TypeError: If text not string.
     """
-    if type(text) is not str:
+    if not isinstance(text, str):
         raise TypeError('text must be a string')
         return
     for i in range(0, len(text)):
