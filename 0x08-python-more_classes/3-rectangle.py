@@ -60,15 +60,16 @@ class Rectangle:
         return ((2 * self.__width) + (2 * self.__height))
 
     def __str__(self):
-        """Returns the rectangle
+        """Return Rectangle.
 
-        print the rectangle with the character #
+            Print the rectangle with the # character.
         """
         if self.__width == 0 or self.__height == 0:
-            return("")
+            return ("")
+
         rect = []
-        for x in range(self.__height):
+        for i in range(self.__height):
             [rect.append('#') for j in range(self.__width)]
-            if x != self.__height - 1:
+            if i != self.__height - 1:
                 rect.append("\n")
         return ("".join(rect))
