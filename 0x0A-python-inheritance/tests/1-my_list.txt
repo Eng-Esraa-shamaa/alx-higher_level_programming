@@ -55,6 +55,22 @@ Traceback (most recent call last):
 NameError: name 'my_list3' is not defined
 
 >>> my_list = MyList()
+>>> my_list.print_sorted([1, 2])
+Traceback (most recent call last):
+	...
+TypeError: print_sorted() takes 1 positional argument but 2 were given
+
+>>> my_list = MyList()
+>>> my_list.print_sorted([1, 2], [3, 4])
+Traceback (most recent call last):
+	...
+TypeError: print_sorted() takes 1 positional argument but 3 were given
+
+>>> my_list = MyList()
+>>> 'print_sorted' in dir(MyList)
+True
+
+>>> my_list = MyList()
 >>> my_list.append('j')
 >>> my_list.append('c')
 >>> my_list.append('z')
