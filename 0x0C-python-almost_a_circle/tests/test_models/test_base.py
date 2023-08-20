@@ -50,19 +50,19 @@ class TestBase(unittest.TestCase):
         self.assertEqual(isinstance(sq1, Square), True)
 
     def test_type_instance_rectangle(self):
-        """same type"""
+        """same type test"""
         Base._Base__nb_objects = 0
         r1 = Rectangle(1, 2)
         self.assertEqual(str(type(r1)), "<class 'models.rectangle.Rectangle'>")
 
     def test_type_instance_square(self):
-        """same types"""
+        """same types test"""
         Base._Base__nb_objects = 0
         sq1 = Square(2)
         self.assertEqual(str(type(sq1)), "<class 'models.square.Square'>")
 
     def test_subclass(self):
-        """Are subclasses"""
+        """test if they are subclasses"""
         Base._Base__nb_objects = 0
         self.assertEqual(issubclass(Square, Rectangle), True)
         self.assertEqual(issubclass(Square, Base), True)
@@ -72,32 +72,32 @@ class TestBase(unittest.TestCase):
         self.assertEqual(issubclass(Base, Square), False)
 
     def test_Equal_rectangle(self):
-        """Are equal"""
+        """test if they are equal"""
         Base._Base__nb_objects = 0
         r2 = Rectangle(4, 5)
         r3 = Rectangle(4, 5)
         self.assertEqual(r2 is r3, False)
 
     def test_Equal_square(self):
-        """Are equal"""
+        """test if they are equal"""
         Base._Base__nb_objects = 0
         sq2 = Square(4)
         sq3 = Square(4)
         self.assertEqual(sq2 is sq3, False)
 
     def test_None_base(self):
-        """Base empty"""
+        """test id the base empty"""
         Base._Base__nb_objects = 0
         base1 = Base(None)
         self.assertEqual(base1.id, 1)
 
     def test_more_args_base(self):
-        """Base with more args"""
+        """test if the base with more args"""
         with self.assertRaises(TypeError):
             base1 = Base(1, 2)
 
     def test1_to_json_string(self):
-        """funct to pass to JSON string"""
+        """test case to JSON string"""
         Base._Base__nb_objects = 0
         rect = Rectangle(5, 4, 3, 6)
         new_dict = rect.to_dictionary()
@@ -110,7 +110,7 @@ class TestBase(unittest.TestCase):
                                 '5, "y": 6, "id": 1}]'))
 
     def test2_to_json_string_type(self):
-        """funct to pass to JSON string"""
+        """test when passing to JSON string"""
         Base._Base__nb_objects = 0
         rect = Rectangle(5, 4, 3, 6)
         new_dict = rect.to_dictionary()
@@ -118,33 +118,33 @@ class TestBase(unittest.TestCase):
         self.assertEqual(type(jstrg), str)
 
     def test3_to_json_string(self):
-        """funct to pass to JSON string"""
+        """test when pass to JSON string"""
         Base._Base__nb_objects = 0
         new_dict = None
         jstrg = Base.to_json_string([new_dict])
         self.assertEqual(jstrg, '[null]')
 
     def test4_to_json_string(self):
-        """funct to pass to JSON string"""
+        """test when pasin JSON string"""
         Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
             Base.to_json_string()
 
     def test5_to_json_string(self):
-        """funct to pass to JSON string"""
+        """funct when pass to JSON string"""
         Base._Base__nb_objects = 0
         jstrg = Base.to_json_string([])
         self.assertEqual(jstrg, "[]")
 
     def test6_to_json_string(self):
-        """funct to pass to JSON string"""
+        """pass to JSON string"""
         Base._Base__nb_objects = 0
         MyList = [1, 2, 3]
         jstrg = Base.to_json_string([MyList])
         self.assertEqual(jstrg, "[[1, 2, 3]]")
 
     def test1_json_to_file1(self):
-        """ test json string into file"""
+        """ test the json string to file"""
         Base._Base__nb_objects = 0
         r1 = Rectangle(2, 4)
         r2 = Rectangle(2, 4)
@@ -157,26 +157,26 @@ class TestBase(unittest.TestCase):
             self.assertEqual(list_output, lista)
 
     def test7_json_to_file7(self):
-        """ test json string into file"""
+        """ test json str to file"""
         Base._Base__nb_objects = 0
         with self.assertRaises(AttributeError):
             MyList = ["hello", "my", "friend"]
             Square.save_to_file(MyList)
 
     def test8_json_to_file8(self):
-        """ test json string into file"""
+        """ test to json str into file"""
         Base._Base__nb_objects = 0
         with self.assertRaises(AttributeError):
             Square.save_to_file([None])
 
     def test9_json_to_file9(self):
-        """ test json string into file"""
+        """ test to json string into file"""
         Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
             Square.save_to_file()
 
     def test0_json_str_to_dic(self):
-        """test json, str to dictionary"""
+        """test json str to dictionary"""
         Base._Base__nb_objects = 0
         list_input = [
             {'id': 89, 'width': 10, 'height': 4},
@@ -189,7 +189,7 @@ class TestBase(unittest.TestCase):
                                                     'id': 7}])
 
     def test_display_1(self):
-        """test output 1"""
+        """test display 1"""
         Base._Base__nb_objects = 0
         r1 = Rectangle(2, 3)
         captureOutput = io.StringIO()
@@ -198,10 +198,10 @@ class TestBase(unittest.TestCase):
         self.assertEqual(captureOutput.getvalue(), ("##\n##\n##\n"))
 
     def test_display_2(self):
-        """test output 1"""
+        """test display 1"""
         Base._Base__nb_objects = 0
         with self.assertRaises(TypeError):
-            """ test output 2 """
+            """ test display 2 """
             r2 = Rectangle()
             captureOutput = io.StringIO()
             sys.stdout = captureOutput
